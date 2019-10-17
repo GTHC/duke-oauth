@@ -8,8 +8,8 @@ module OmniAuth
 
       option :client_options, {
         :site          => 'https://oauth.oit.duke.edu/oidc/',
-        :authorize_url => '/authorize',
-        :token_url     => '/token'
+        :authorize_url => '/oidc/authorize',
+        :token_url     => '/oidc/token'
       }
 
       uid { raw_info['eppn'] }
