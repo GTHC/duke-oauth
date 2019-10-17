@@ -12,12 +12,12 @@ module OmniAuth
         :token_url     => '/oidc/token'
       }
 
-      uid { raw_info['eppn'] }
+      uid { raw_info['email'] }
 
       info do
         {
-          email: raw_info['eppn'],
-          netid: raw_info['eppn'][/\A([a-z]+[0-9]*)@duke\.edu\z/, 1]
+          email: raw_info['email'],
+          netid: raw_info['dukeNetID']
         }
       end
 
@@ -27,9 +27,9 @@ module OmniAuth
 
       # TODO: use given eppn, extract netid, then pass to /identity API
 
-      # def raw_info
-      #   # @raw_info ||= access_token.get("/oauth/resource.php").parsed
-      # end
+      def raw_info
+        @raw_info ||= access_token.get("/userinfo").parsed
+      end
 
 
       private
