@@ -27,9 +27,9 @@ module OmniAuth
 
       # TODO: use given eppn, extract netid, then pass to /identity API
 
-      def raw_info
-        @raw_info ||= access_token.get("/oauth/resource.php").parsed
-      end
+      # def raw_info
+      #   # @raw_info ||= access_token.get("/oauth/resource.php").parsed
+      # end
 
 
       private
