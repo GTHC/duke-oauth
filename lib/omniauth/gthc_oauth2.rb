@@ -1,0 +1,1 @@
+require File.join('omniauth', 'strategies', 'gthc_oauth2')
